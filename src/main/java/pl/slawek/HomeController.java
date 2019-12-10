@@ -38,14 +38,24 @@ public class HomeController {
 	
 	//DODAJ KOLOR DO BAZY
 		@RequestMapping("addColors")
-		public String addColors(@ModelAttribute Colors k, Model m) 
+		public String addColors(@ModelAttribute Colors k, Orders o, Model m) 
 		{
 			colorsRepo.save(k);
 		m.addAttribute("result", colorsRepo.findById(k.getColorId()));
 		
 		return "result.jsp";
 	}
-	
+		//POKAZUJE KOLORY W BAZIE
+				@RequestMapping("getColors")
+				public String getColors(@ModelAttribute Colors k, Orders o, Model m) 
+				{
+				
+				m.addAttribute("result", colorsRepo.findAll());
+				
+				return "result.jsp";
+			}
+		
+		
 	
 }
 	

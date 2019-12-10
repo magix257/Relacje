@@ -20,6 +20,10 @@
 <button class="btn btn-info" type="submit">SHOW ORDERS</button>
 </form>
 
+<form action="getColors">
+<button class="btn btn-info" type="submit">SHOW COLORS</button>
+</form>
+
 <form action="addColors">
 <input type="text" class="form-control" placeholder="Podaj nazwe koloru" id="nazwaKoloru" name="colorName">
 <input type="text" class="form-control" placeholder="Podaj wartość R" id="r" name="r">
