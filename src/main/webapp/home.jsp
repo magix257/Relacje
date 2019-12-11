@@ -21,7 +21,7 @@
 </form>
 
 <form action="getColors">
-<button class="btn btn-info" type="submit">SHOW COLORS</button>
+<button class="btn btn-danger" type="submit">SHOW COLORS</button>
 </form>
 
 <form action="addColors">
@@ -50,17 +50,20 @@
   <div class="input-group mb-3">
  <div class="input-group-append">
     <span class="input-group-text">Podaj kolor 1:</span>
-  </div><input list="datalist_kolory" class="form-control" id="k1" placeholder="KOLOR1" name="color1">
+  </div><input list="datalist_kolory" class="form-control" id="k1" placeholder="NAZWA KOLORU" name="colorName">
    <div class="input-group-append">
-    <span class="input-group-text">Podaj kolor 2:</span>
-  </div><input list="datalist_kolory" class="form-control" id="k1" placeholder="KOLOR2" name="color2">
+    <span class="input-group-text">Podaj r:</span>
+  </div><input list="datalist_kolory" class="form-control" id="R1" placeholder="R" name="r">
    <div class="input-group-append">
-    <span class="input-group-text">Podaj kolor 3:</span>
-  </div><input list="datalist_kolory" class="form-control" id="k1" placeholder="KOLOR3" name="color3">
+    <span class="input-group-text">Podaj g:</span>
+  </div><input list="datalist_kolory" class="form-control" id="G1" placeholder="G" name="g">
+    <div class="input-group-append">
+    <span class="input-group-text">Podaj b:</span>
+  </div><input list="datalist_kolory" class="form-control" id="B1" placeholder="B" name="b">
+  
 
   
-  </div>
-  </div>
+  
   </div>
   </div>
 

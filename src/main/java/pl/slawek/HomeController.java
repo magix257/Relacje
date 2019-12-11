@@ -28,34 +28,65 @@ public class HomeController {
 	
 	//DODAJE ZLECENIE DO BAZY
 	@RequestMapping("addOrder")
-	public String addOrder(@ModelAttribute Orders z, Model m) 
+	public String addOrder(@ModelAttribute Colors c, Orders o, Customer cu, Model m) 
 	{
-		ordersRepo.save(z);
-		m.addAttribute("result",ordersRepo.findAll());
+		StringBuilder out = new StringBuilder();
+		
+		ordersRepo.findAll().forEach(orders -> {
+			out.append("Order: ").append(o.getOrderId()).append("<br>");
+			
+			o.getColors().forEach(colors -> {
+				out.append("-").append(c.getColorName()).append("<br>");
+			});
+			
+		});
+		
+		
+	    o.getColors().add(c);
+	   // o.getCustomer().add(cu);
+		ordersRepo.save(o);
+		
+		
+		customerRepo.save(cu);
+		
+		c.getOrders().add(o);
+		
+		colorsRepo.save(c);
+		
+		m.addAttribute("result", out.toString());
 		
 		return "result.jsp";
 	}
 	
 	//DODAJ KOLOR DO BAZY
 		@RequestMapping("addColors")
-		public String addColors(@ModelAttribute Colors k, Orders o, Model m) 
+		public String addColors(@ModelAttribute Colors c, Orders o, Model m) 
 		{
-			colorsRepo.save(k);
-		m.addAttribute("result", colorsRepo.findById(k.getColorId()));
+			colorsRepo.save(c);
+		m.addAttribute("result", colorsRepo.findById(c.getColorId()));
 		
 		return "result.jsp";
 	}
 		//POKAZUJE KOLORY W BAZIE
 				@RequestMapping("getColors")
-				public String getColors(@ModelAttribute Colors k, Orders o, Model m) 
+				public String getColors(@ModelAttribute Colors c, Orders o, Model m) 
 				{
 				
 				m.addAttribute("result", colorsRepo.findAll());
 				
 				return "result.jsp";
 			}
+				//POKAZUJE KOLORY W BAZIE
+				@RequestMapping("getOrders")
+				public String getOrders(@ModelAttribute Colors k, Orders o, Model m) 
+				{
+				
+				m.addAttribute("result", ordersRepo.findAll());
+				
+				return "result.jsp";
+			}
 		
-		
+				
 	
 }
 	
