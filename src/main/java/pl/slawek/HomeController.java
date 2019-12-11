@@ -47,10 +47,10 @@ public class HomeController {
 		
 		
 		ordersRepo.findAll().forEach(orders -> {
-			out.append("Order: ").append(o.getOrderId()).append("<br>");
+			out.append("Order: ").append(orders.getOrderId());
 			
-			o.getColors().forEach(colors -> {
-				out.append("Kolor: ").append(c.getColorName()).append("<br>");
+			orders.getColors().forEach(colors -> {
+				out.append("Kolor: ").append(colors.getColorName()).append(" ").append(colors.getR()).append(colors.getG()).append(colors.getB()).append("<br>");
 			});
 			
 		});
