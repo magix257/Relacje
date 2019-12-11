@@ -1,5 +1,7 @@
 package pl.slawek;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,18 +34,12 @@ public class HomeController {
 	{
 		StringBuilder out = new StringBuilder();
 		
-		ordersRepo.findAll().forEach(orders -> {
-			out.append("Order: ").append(o.getOrderId()).append("<br>");
-			
-			o.getColors().forEach(colors -> {
-				out.append("-").append(c.getColorName()).append("<br>");
-			});
-			
-		});
+	
 		
 		
 	    o.getColors().add(c);
 	   // o.getCustomer().add(cu);
+	    c.setOrders(new ArrayList<>());
 		ordersRepo.save(o);
 		
 		
@@ -52,6 +48,15 @@ public class HomeController {
 		c.getOrders().add(o);
 		
 		colorsRepo.save(c);
+		
+		ordersRepo.findAll().forEach(orders -> {
+			out.append("Order: ").append(o.getOrderId()).append("<br>");
+			
+			o.getColors().forEach(colors -> {
+				out.append("-").append(c.getColorName()).append("<br>");
+			});
+			
+		});
 		
 		m.addAttribute("result", out.toString());
 		
@@ -76,12 +81,22 @@ public class HomeController {
 				
 				return "result.jsp";
 			}
-				//POKAZUJE KOLORY W BAZIE
+		//POKAZUJE ZLECENIA W BAZIE
 				@RequestMapping("getOrders")
-				public String getOrders(@ModelAttribute Colors k, Orders o, Model m) 
+				public String getOrders(@ModelAttribute Colors c, Orders o, Model m) 
 				{
+					StringBuilder out = new StringBuilder();
 				
-				m.addAttribute("result", ordersRepo.findAll());
+					ordersRepo.findAll().forEach(orders -> {
+						out.append("Order: ").append(o.getColors()).append("<br>");
+						
+						o.getColors().forEach(colors -> {
+							out.append("-").append(c.getColorName()).append("<br>");
+						});
+						
+					});
+					
+					m.addAttribute("result", out.toString());
 				
 				return "result.jsp";
 			}
