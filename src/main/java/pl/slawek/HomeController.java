@@ -35,25 +35,22 @@ public class HomeController {
 		StringBuilder out = new StringBuilder();
 		
 	
-		
-		
-	    o.getColors().add(c);
-	   // o.getCustomer().add(cu);
-	    c.setOrders(new ArrayList<>());
 		ordersRepo.save(o);
+		  o.setColors(new ArrayList<>());
+		  o.getColors().add(c);
+		  c.setOrders(new ArrayList<>());
+		  c.getOrders().add(o);
+		 colorsRepo.save(c);
 		
 		
 		customerRepo.save(cu);
 		
-		c.getOrders().add(o);
-		
-		colorsRepo.save(c);
 		
 		ordersRepo.findAll().forEach(orders -> {
 			out.append("Order: ").append(o.getOrderId()).append("<br>");
 			
 			o.getColors().forEach(colors -> {
-				out.append("-").append(c.getColorName()).append("<br>");
+				out.append("Kolor: ").append(c.getColorName()).append("<br>");
 			});
 			
 		});
@@ -88,17 +85,17 @@ public class HomeController {
 					StringBuilder out = new StringBuilder();
 				
 					ordersRepo.findAll().forEach(orders -> {
-						out.append("Order: ").append(o.getColors()).append("<br>");
+						out.append("Order: ").append(orders.getOrderId()).append("<br>");
 						
-						o.getColors().forEach(colors -> {
-							out.append("-").append(c.getColorName()).append("<br>");
+						orders.getColors().forEach(colors -> {
+							out.append("Kolor: ").append(colors.getColorName()).append("<br>");
 						});
 						
 					});
 					
 					m.addAttribute("result", out.toString());
-				
-				return "result.jsp";
+					
+					return "result.jsp";
 			}
 		
 				
