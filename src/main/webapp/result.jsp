@@ -24,6 +24,26 @@
  <div class="container-fluid">
 
 Rezultat to:${result}
+
+
+<table id="listaZlecen" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> 
+  <thead>
+    <tr>
+       <th class="th-sm"><small><center><b>ORDER ID</b></center></small>
+      </th>
+      <th class="th-sm"><small><center><b>COLOR NAME</b></center></small>
+      </th>
+    
+     </tr>
+  </thead>
+  <tbody id="myTable">
+    ${result }
+    
+  </tbody>
+</table>
+
 </div>
+
+
 </body>
 </html>
