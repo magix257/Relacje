@@ -11,6 +11,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="scripts.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body>
  <div class="container-fluid">
@@ -23,14 +25,12 @@
 <form action="getColors">
 <button class="btn btn-danger" type="submit">SHOW COLORS</button>
 </form>
-
+</div>
 <form action="addColors">
 <input type="text" class="form-control" placeholder="Podaj nazwe koloru" id="nazwaKoloru" name="colorName">
 <input type="text" class="form-control" placeholder="Podaj wartość R" id="r" name="r">
 <input type="text" class="form-control" placeholder="Podaj wartość G" id="r" name="g">
 <input type="text" class="form-control" placeholder="Podaj wartość B" id="r" name="b">
-    <span class="input-group-text">Podaj kolor 3:</span>
-  </div><input list="datalist_kolory" class="form-control" id="k1" placeholder="ORDERID" name="orderId">
 <button class="btn btn-danger" type="submit">ADD COLORS</button>
 </form>
 
@@ -50,7 +50,7 @@
   <div class="input-group mb-3">
  <div class="input-group-append">
     <span class="input-group-text">Podaj kolor 1:</span>
-  </div><input list="datalist_kolory" class="form-control" id="k1" placeholder="NAZWA KOLORU" name="colorName">
+  </div><input list="datalist_colors" class="form-control" id="k1" placeholder="NAZWA KOLORU" name="colorName">
    <div class="input-group-append">
     <span class="input-group-text">Podaj r:</span>
   </div><input list="datalist_kolory" class="form-control" id="R1" placeholder="R" name="r">
@@ -59,7 +59,7 @@
   </div><input list="datalist_kolory" class="form-control" id="G1" placeholder="G" name="g">
     <div class="input-group-append">
     <span class="input-group-text">Podaj b:</span>
-  </div><input list="datalist_kolory" class="form-control" id="B1" placeholder="B" name="b">
+  </div><input list="datalist_kolory" class="form-control" id="B1" placeholder="B" name="b"> 
   
 
   
@@ -74,6 +74,7 @@
   </div>
   </form>
 
-
+ 
+</div>
 </body>
 </html>
