@@ -1,5 +1,6 @@
 package pl.slawek;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 public class HomeController {
@@ -78,13 +82,25 @@ public class HomeController {
 	}
 		//POKAZUJE KOLORY W BAZIE
 				@RequestMapping("getColors")
-				public List<Colors> getColors() {
+				public String getColors() throws JsonProcessingException {
 					
 					List<Colors> list = new ArrayList<>();
 					 colorsRepo.findAll().iterator().forEachRemaining(list::add);
+					 
+					 ObjectMapper Obj = new ObjectMapper(); 
+					 
+					
+				        
+				  
+				            // get Colors object as a json string 
+				            String jsonStr = Obj.writeValueAsString(list); 
+				  
+				            // Displaying JSON String 
+				            
+				       
 				
 					
-					return list;
+				        return jsonStr;
 
 }
 

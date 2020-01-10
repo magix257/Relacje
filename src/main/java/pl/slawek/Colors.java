@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Colors {
 
@@ -17,19 +19,20 @@ public class Colors {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long colorId;
 
+@JsonIgnore
 @Column
 private String colorName;
-
+@JsonIgnore
 @Column
 private Integer r;
-
+@JsonIgnore
 @Column
 private Integer g;
-
+@JsonIgnore
 @Column
 private Integer b;
 	
-
+@JsonIgnore
 @ManyToMany
 private Collection<Orders> orders=new ArrayList<>();
 
@@ -57,7 +60,7 @@ public void setColorId(Long colorId) {
 	this.colorId = colorId;
 }
 
-
+@JsonIgnore
 public String getColorName() {
 	return colorName;
 }
@@ -67,7 +70,7 @@ public void setColorName(String colorName) {
 	this.colorName = colorName;
 }
 
-
+@JsonIgnore
 public Integer getR() {
 	return r;
 }
@@ -77,7 +80,7 @@ public void setR(Integer r) {
 	this.r = r;
 }
 
-
+@JsonIgnore
 public Integer getG() {
 	return g;
 }
@@ -87,7 +90,7 @@ public void setG(Integer g) {
 	this.g = g;
 }
 
-
+@JsonIgnore
 public Integer getB() {
 	return b;
 }
@@ -97,7 +100,7 @@ public void setB(Integer b) {
 	this.b = b;
 }
 
-
+@JsonIgnore
 public Collection<Orders> getOrders() {
 	return orders;
 }
