@@ -19,7 +19,7 @@ public class Colors {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long colorId;
 
-@JsonIgnore
+
 @Column
 private String colorName;
 @JsonIgnore
@@ -60,7 +60,7 @@ public void setColorId(Long colorId) {
 	this.colorId = colorId;
 }
 
-@JsonIgnore
+
 public String getColorName() {
 	return colorName;
 }
