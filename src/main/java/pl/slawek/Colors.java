@@ -22,13 +22,13 @@ private Long colorId;
 
 @Column
 private String colorName;
-@JsonIgnore
+
 @Column
 private Integer r;
-@JsonIgnore
+
 @Column
 private Integer g;
-@JsonIgnore
+
 @Column
 private Integer b;
 	
@@ -70,7 +70,7 @@ public void setColorName(String colorName) {
 	this.colorName = colorName;
 }
 
-@JsonIgnore
+
 public Integer getR() {
 	return r;
 }
@@ -80,7 +80,7 @@ public void setR(Integer r) {
 	this.r = r;
 }
 
-@JsonIgnore
+
 public Integer getG() {
 	return g;
 }
@@ -90,7 +90,7 @@ public void setG(Integer g) {
 	this.g = g;
 }
 
-@JsonIgnore
+
 public Integer getB() {
 	return b;
 }
