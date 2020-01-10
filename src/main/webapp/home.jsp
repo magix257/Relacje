@@ -45,7 +45,7 @@
 
 <div class="input-group-append">
     <span class="input-group-text">Podaj nazwę klienta:</span></div>
-   <input list="nazwaKlienta" id="nazwaKlienta1" class="form-control" placeholder="NAZWA KLIENTA" name="customerName">
+   <input list="datalist_customer" id="nazwaKlienta1" class="form-control" placeholder="NAZWA KLIENTA" name="customerName">
   
   <div class="input-group mb-3">
  <div class="input-group-append">
@@ -74,7 +74,6 @@
   </div>
   </form>
 
- 
-</div>
+
 </body>
 </html>

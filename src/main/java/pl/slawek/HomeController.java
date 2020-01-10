@@ -1,14 +1,17 @@
 package pl.slawek;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@RestController
 public class HomeController {
 
 	@Autowired
@@ -22,11 +25,14 @@ public class HomeController {
 	
 	
 	@RequestMapping("/")
-	public String home(Model m) {
+	@ResponseBody
+	public ModelAndView home(@ModelAttribute Colors c, Orders o, ModelAndView mv) {
 		
-		m.addAttribute("result",colorsRepo.findAll());
+		mv.addObject("result", customerRepo.findAll());
+		mv.setViewName("home.jsp");
 		
-		return "home.jsp";
+		return mv;
+		
 	}
 	
 	//DODAJE ZLECENIE DO BAZY
@@ -72,16 +78,15 @@ public class HomeController {
 	}
 		//POKAZUJE KOLORY W BAZIE
 				@RequestMapping("getColors")
-				public String getColors(@ModelAttribute Colors c, Orders o, Model m) 
-				{
+				public List<Colors> getColors() {
+					
+					List<Colors> list = new ArrayList<>();
+					 colorsRepo.findAll().iterator().forEachRemaining(list::add);
 				
-				m.addAttribute("result", colorsRepo.findAll());
-				
-				return "result.jsp";
-			}
-		
-		
-				
-	
+					
+					return list;
+
+}
+
 }
 	
