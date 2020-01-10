@@ -39,7 +39,7 @@ Rezultat to:${result}
      </tr>
   </thead>
   <tbody id="myTable">
-    ${result }
+    <tr><td><center>${result.colorID}</center></td></tr>
     
   </tbody>
 </table>

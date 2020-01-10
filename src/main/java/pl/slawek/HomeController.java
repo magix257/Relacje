@@ -89,17 +89,9 @@ public class HomeController {
 					 
 					 ObjectMapper Obj = new ObjectMapper(); 
 					 
-					
-				        
+				     String jsonStr = Obj.writeValueAsString(list); 
 				  
-				            // get Colors object as a json string 
-				            String jsonStr = Obj.writeValueAsString(list); 
-				  
-				            // Displaying JSON String 
-				            
-				       
-				
-					
+				     
 				        return jsonStr;
 
 }
