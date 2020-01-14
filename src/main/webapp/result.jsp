@@ -25,7 +25,7 @@
 
  <div class="container-fluid">
 
-Rezultat to:${result}
+
 
 
 <table id="listaZlecen" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> 
@@ -35,12 +35,16 @@ Rezultat to:${result}
       </th>
       <th class="th-sm"><small><center><b>COLOR NAME</b></center></small>
       </th>
-    
      </tr>
   </thead>
   <tbody id="myTable">
-    <tr><td><center>${result.colorID}</center></td></tr>
-    
+ <c:forEach items="${result }" var="e">
+ <tr>
+ <td>${e.colorId}</td>
+ </tr>
+ </c:forEach>
+ 
+ 
   </tbody>
 </table>
 

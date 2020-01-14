@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@RestController
+@Controller
 public class HomeController {
 
 	@Autowired
@@ -81,17 +81,18 @@ public class HomeController {
 	}
 		//POKAZUJE KOLORY W BAZIE
 				@RequestMapping("getColors")
-				public String getColors() throws JsonProcessingException {
+				public String getColors(Model m) throws JsonProcessingException {
 					
 					List<Colors> list = new ArrayList<>();
 					 colorsRepo.findAll().iterator().forEachRemaining(list::add);
 					 
-					 ObjectMapper Obj = new ObjectMapper(); 
+					// ObjectMapper Obj = new ObjectMapper(); 
 					 
-				     String jsonStr = Obj.writeValueAsString(list); 
+				     //String jsonStr = Obj.writeValueAsString(list); 
+				     m.addAttribute("result", list);
 				  
 				     
-				        return jsonStr;
+				        return "result.jsp";
 
 }
 
