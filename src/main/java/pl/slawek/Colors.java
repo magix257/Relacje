@@ -32,7 +32,7 @@ private Integer g;
 @Column
 private Integer b;
 	
-@JsonIgnore
+
 @ManyToMany
 private Collection<Orders> orders=new ArrayList<>();
 

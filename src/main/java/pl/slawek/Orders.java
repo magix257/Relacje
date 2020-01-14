@@ -17,7 +17,7 @@ public class Orders {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long orderId;
 
-	
+//@JsonIgnore	
 @ManyToMany(mappedBy = "orders")
 private Collection<Colors> colors=new ArrayList<>();
 
