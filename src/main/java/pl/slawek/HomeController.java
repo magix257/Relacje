@@ -1,5 +1,7 @@
 package pl.slawek;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -80,19 +83,29 @@ public class HomeController {
 		return "result.jsp";
 	}
 		//POKAZUJE KOLORY W BAZIE
-				@RequestMapping("getColors")
-				public String getColors(Model m) throws JsonProcessingException {
+				
+				@RequestMapping(value="/getColors", method=RequestMethod.GET)
+			   
+				public ModelAndView getColors(ModelAndView mv) throws IOException {
 					
 					List<Colors> list = new ArrayList<>();
 					 colorsRepo.findAll().iterator().forEachRemaining(list::add);
 					 
-					// ObjectMapper Obj = new ObjectMapper(); 
+					 ObjectMapper Obj = new ObjectMapper(); 
 					 
-				     //String jsonStr = Obj.writeValueAsString(list); 
-				     m.addAttribute("result", list);
+				     String jsonStr = Obj.writeValueAsString(list); 
+				     
+						FileWriter fstream = new FileWriter("src\\main\\webapp\\json_demo.txt",false);
+						
+						fstream.write(jsonStr);
+						fstream.close();
+				     
+				     
+				     mv.addObject(jsonStr);
+				     mv.setViewName("result.jsp");
 				  
 				     
-				        return "result.jsp";
+				       return mv;
 
 }
 

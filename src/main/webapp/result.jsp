@@ -14,7 +14,7 @@
   <script src="scripts.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
-<body>
+<body onload="parseJSON()">
 <div class="jumbotron text-center" style="margin-bottom:0">
 <img src="logoetiko.svg" width="447.029" height="95.04" />
 </div>
@@ -26,7 +26,7 @@
  <div class="container-fluid">
 
 
-
+<p id="demo">ABC</p>
 
 <table id="listaZlecen" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> 
   <thead>
@@ -37,12 +37,13 @@
       </th>
      </tr>
   </thead>
-  <tbody id="myTable">
- <c:forEach items="${result }" var="e">
+  <tbody id="myTable" >
  <tr>
- <td>${e.colorId}</td>
+ <td id="result">
+
+ </td>
  </tr>
- </c:forEach>
+
  
  
   </tbody>
