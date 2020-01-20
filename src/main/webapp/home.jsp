@@ -31,12 +31,12 @@ function MojKomponent() {
   );
 }
 
-function MojKomponent2() {
+function MojKomponent2({ title, content }) {
   return (
     <div>
       <dialog open>
-        <h1>Tytuł</h1>
-        <p>Treść</p>
+     <h1>{title}</h1>
+     <p>{content}</p>
       </dialog>
     </div>
   );
@@ -46,7 +46,7 @@ function MojKomponent2() {
     ReactDOM.render(
 
 <div> 
-<MojKomponent2 title="Tytuł" content="Treść" /> 
+<MojKomponent2 title="I co, duma?" content="To było prostsze niż by się mogło wydawać, prawda?" /> 
 <MojKomponent />
 </div>,
 
