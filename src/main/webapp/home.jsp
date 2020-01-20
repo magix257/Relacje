@@ -34,8 +34,10 @@ function MojKomponent() {
 function MojKomponent2() {
   return (
     <div>
-      <h1>Slawek!</h1>
-      <h2>Komponent 2 obok 1</h2>
+      <dialog open>
+        <h1>Tytuł</h1>
+        <p>Treść</p>
+      </dialog>
     </div>
   );
 }
@@ -44,7 +46,7 @@ function MojKomponent2() {
     ReactDOM.render(
 
 <div> 
-<MojKomponent2 /> 
+<MojKomponent2 title="Tytuł" content="Treść" /> 
 <MojKomponent />
 </div>,
 
