@@ -24,9 +24,9 @@
   </ul>
 
  <div class="container-fluid">
+${Colors}
 
 
-<p id="demo">ABC</p>
 
 <table id="listaZlecen" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> 
   <thead>

@@ -12,10 +12,47 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="scripts.js"></script>
+  <script src="https://unpkg.com/react/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone/babel.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body>
  <div class="container-fluid">
+
+  <div id="app"></div>
+  <script type="text/babel">
+function MojKomponent() {
+  return (
+    <div>
+      <h1>Witaj, świecie!</h1>
+      <h2>Jestem ambitna/y, więc przerabiam kurs React.js!</h2>
+    </div>
+  );
+}
+
+function MojKomponent2() {
+  return (
+    <div>
+      <h1>Slawek!</h1>
+      <h2>Komponent 2 obok 1</h2>
+    </div>
+  );
+}
+
+
+    ReactDOM.render(
+
+<div> 
+<MojKomponent2 /> 
+<MojKomponent />
+</div>,
+
+      document.getElementById('app')
+    );
+  </script>
+
+
  <div class="input-group mb-3">
 
 <form action="getOrders">
@@ -74,6 +111,6 @@
   </div>
   </form>
 
-
+</div>
 </body>
 </html>

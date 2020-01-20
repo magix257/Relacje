@@ -131,15 +131,19 @@ function parseJSON() {
 	xmlhttp.onreadystatechange = function() {
 	  if (this.readyState == 4 && this.status == 200) {
 	    var myObj = JSON.parse(this.responseText);
-	   
-	    document.getElementById("myTable").innerHTML = myObj[4].colorName;
-	   
-	   
+	    //alert(myObj);
+	   let x, i;
+	    for (i = 0; i < myObj.length; i++) {
+	    	  x += myObj[i].colorId + "<br>";
+	    	}
+	    	document.getElementById("result").innerHTML = x;
+
+	    }
+
 	  }
-	};
 	xmlhttp.open("GET", "json_demo.txt", true);
 	xmlhttp.send();
+	};
 
 
 
-}

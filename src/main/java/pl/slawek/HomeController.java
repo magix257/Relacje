@@ -1,6 +1,5 @@
 package pl.slawek;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
@@ -92,16 +92,21 @@ public class HomeController {
 					 colorsRepo.findAll().iterator().forEachRemaining(list::add);
 					 
 					 ObjectMapper Obj = new ObjectMapper(); 
+					 String jsonStr = Obj.writeValueAsString(list);
+					 JsonFactory factory = new JsonFactory();
+					 JsonParser  parser  = factory.createParser(jsonStr);
+					 parser.close();
 					 
-				     String jsonStr = Obj.writeValueAsString(list); 
+					 
+//				      
+//				     
+//						FileWriter fstream = new FileWriter("src\\main\\webapp\\json_demo.txt",false);
+//						
+//						fstream.write(jsonStr);
+//						fstream.close();
 				     
-						FileWriter fstream = new FileWriter("src\\main\\webapp\\json_demo.txt",false);
-						
-						fstream.write(jsonStr);
-						fstream.close();
-				     
-				     
-				     mv.addObject(jsonStr);
+				//List<Colors> colors = new Gson().fromJson(Obj, new TypeToken<List<Colors>>()       {}.getType());
+				     mv.addObject("Colors", jsonStr);
 				     mv.setViewName("result.jsp");
 				  
 				     
