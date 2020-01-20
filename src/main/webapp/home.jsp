@@ -22,16 +22,20 @@
 
   <div id="app"></div>
   <script type="text/babel">
-function MojKomponent() {
+let DUZY = 123;
+function MojKomponent({ title, content }) {
   return (
     <div>
-      <h1>Witaj, świecie!</h1>
-      <h2>Jestem ambitna/y, więc przerabiam kurs React.js!</h2>
+ <dialog open>
+      <h1>{title}</h1>
+     <p>{content}</p>
+</dialog>
     </div>
   );
 }
 
 function MojKomponent2({ title, content }) {
+
   return (
     <div>
       <dialog open>
@@ -46,8 +50,9 @@ function MojKomponent2({ title, content }) {
     ReactDOM.render(
 
 <div> 
-<MojKomponent2 title="I co, duma?" content="To było prostsze niż by się mogło wydawać, prawda?" /> 
-<MojKomponent />
+
+<MojKomponent2 content={DUZY} /> 
+<MojKomponent title={ "tytul" } />
 </div>,
 
       document.getElementById('app')
